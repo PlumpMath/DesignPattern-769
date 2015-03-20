@@ -19,12 +19,23 @@ public class CashContext {
       return cashSuper.acceptCash(money);
    }
    
-   /** 通过构造方法传入具体的策略类
+   /** 通过构造方 法，传入字符串，由创建时选择创建那个类
     * 
     * @param csSuper */
-   public CashContext(CashSuper csSuper) {
+   public CashContext(String type) {
       // TODO: implement
-	   this.cashSuper = csSuper;
+	   switch(type)
+	   {
+	   case "正常":
+		  this.cashSuper= new CashNormal();
+		  break;
+	   case "打八折":
+		   this.cashSuper= new CashRebate("0.8");
+		   break;
+	   case "满300返100":
+		   this.cashSuper= new CashReturn(300,100);
+		   break;
+	   }
    }
    
 

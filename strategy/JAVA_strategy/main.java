@@ -5,15 +5,15 @@ public class main {
 		// TODO Auto-generated method stub
 		double total = 0.0;
 		CashContext cc=null;
-		cc = new CashContext(new CashNormal());
+		cc = new CashContext("正常");
 		double totalPrice =0;
 		totalPrice = cc.getResult(100);
 		System.out.println("当钱收费价格为"+Double.toString(totalPrice));
-		cc = new CashContext(new CashRebate("0.8"));
+		cc = new CashContext("打八折");
 
 		totalPrice = cc.getResult(100);
 		System.out.println("当钱收费价格为"+Double.toString(totalPrice));
-		cc = new CashContext(new CashReturn(300,50));
+		cc = new CashContext("满300返100");
 		
 		totalPrice = cc.getResult(300);
 		System.out.println("当钱收费价格为"+Double.toString(totalPrice));
